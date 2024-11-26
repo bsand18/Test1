@@ -1,0 +1,14 @@
+{
+    "name": "survey-project",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+      "dev": "vercel dev",
+      "start": "vercel dev"
+    },
+    "dependencies": {
+      "sqlite3": "^5.1.6"
+    }
+  }
+  
