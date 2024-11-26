@@ -1,5 +1,8 @@
+import { MongoClient } from 'mongodb';
 
-           import db from './db.js';
+// MongoDB URI (Replace with your own URI from Atlas)
+const uri = 'mongodb+srv://bsand:<aJbrh0EcRTvpqWAC@surveyproject.7iq3i.mongodb.net/?retryWrites=true&w=majority&appName=SurveyProject';
+const client = new MongoClient(uri);
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
@@ -18,37 +21,41 @@ export default async function handler(req, res) {
             experience,
         } = req.body;
 
-        const sql = `
-            INSERT INTO survey_responses (
-                first_name, last_name, email, work, responsibilities, location, 
-                coding_rank, requirements_rank, testing_rank, ui_design_rank, 
-                project_management_rank, experience
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        `;
-        const values = [
-            first_name,
-            last_name,
-            email,
-            work,
-            responsibilities,
-            location,
-            coding,
-            requirements,
-            testing,
-            ui_design,
-            project_management,
-            experience,
-        ];
+        try {
+            // Connect to MongoDB
+            await client.connect();
+            const database = client.db('SurveyProject');  // Use the name of your database
+            const collection = database.collection('survey_responses');
 
-        db.run(sql, values, function (err) {
-            if (err) {
-                console.error(err);
-                res.status(500).json({ error: 'Database error' });
-            } else {
-                res.status(200).json({ success: true, id: this.lastID });
-            }
-        });
+            // Insert the survey response
+            const result = await collection.insertOne({
+                first_name,
+                last_name,
+                email,
+                work,
+                responsibilities,
+                location,
+                coding_rank: coding,
+                requirements_rank: requirements,
+                testing_rank: testing,
+                ui_design_rank: ui_design,
+                project_management_rank: project_management,
+                experience,
+            });
+
+            // Respond with success
+            res.status(200).json({ success: true, id: result.insertedId });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Database error' });
+        } finally {
+            // Close the connection
+            await client.close();
+        }
     } else {
         res.status(405).json({ error: 'Method not allowed' });
     }
 }
+
+         
+           
