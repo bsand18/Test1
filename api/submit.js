@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 
-// MongoDB URI (Ensure this is correct and in .env for security)
-const uri = process.env.MONGODB_URI;  // Your MongoDB URI should be set as an environment variable
+
+const uri = process.env.MONGODB_URI;  
 const client = new MongoClient(uri);
 
 export default async function handler(req, res) {
@@ -22,12 +22,12 @@ export default async function handler(req, res) {
         } = req.body;
 
         try {
-            // Connect to MongoDB
+            
             await client.connect();
-            const database = client.db('SurveyProject');  // Use the name of your database
+            const database = client.db('SurveyProject');  
             const collection = database.collection('survey_responses');
 
-            // Insert the survey response
+            
             const result = await collection.insertOne({
                 first_name,
                 last_name,
@@ -43,13 +43,13 @@ export default async function handler(req, res) {
                 experience,
             });
 
-            // Respond with success
+            
             res.status(200).json({ success: true, id: result.insertedId });
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'Database error' });
         } finally {
-            // Close the connection
+            
             await client.close();
         }
     } else {
