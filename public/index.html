@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS 633 Pre-Course Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffebee; /* Very light red */
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            margin-top: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #202124;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .intro-text {
+            font-size: 14px;
+            color: #5f6368;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .question-block {
+            background-color: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 10px;
+        }
+        .question-block label {
+            display: block;
+            font-size: 16px;
+            color: #202124;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            background-color: #f1f3f4;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        input[type="text"]:focus, textarea:focus, select:focus {
+            border-color: #4285f4;
+            background-color: #ffffff;
+            outline: none;
+        }
+        .ranking-options {
+            margin-bottom: 10px;
+        }
+        .ranking-options label {
+            font-weight: normal;
+            color: #5f6368;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .ranking-options input[type="radio"] {
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #673ab7;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #5e35b1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>CS 633 Pre-Course Survey</h1>
+    <p class="intro-text">
+        Please respond to questions offered below. It should take only a few minutes. In no way will it affect your grade.
+        Term Project takes a significant part of the course. It could involve some real programming. By the end of the first week, we shall identify project teams and plan each project. A team consists of five students. It is better if folks belonging to the same team have complementary backgrounds. The goal of the term project is to simulate real-life dynamics. In order to spread the load, each team member is focusing on a certain type of deliverables. This survey will help us assemble well-balanced teams.
+    </p>
+
+    <form id="survey-form">
+        <!-- First Name -->
+        <div class="question-block">
+            <label for="first-name">Please enter your first name:</label>
+            <input type="text" id="first-name" required>
+        </div>
+
+        <!-- Last Name -->
+        <div class="question-block">
+            <label for="last-name">Please enter your last name:</label>
+            <input type="text" id="last-name" required>
+        </div>
+
+        <!-- BU Email ID -->
+        <div class="question-block">
+            <label for="email">Please provide your BU Email ID:</label>
+            <input type="text" id="email" required>
+        </div>
+
+        <!-- Work Organization -->
+        <div class="question-block">
+            <label for="work">Where do you work (company or organization)?</label>
+            <input type="text" id="work" required>
+        </div>
+
+        <!-- Job Responsibilities -->
+        <div class="question-block">
+            <label for="responsibilities">What are your job responsibilities?</label>
+            <input type="text" id="responsibilities" required>
+        </div>
+
+        <!-- Geographic Location -->
+        <div class="question-block">
+            <label for="location">What is your geographic location?</label>
+            <input type="text" id="location" required>
+        </div>
+
+        <!-- Skills and Preferences -->
+        <div class="question-block">
+            <label>Skills and Preferences: Please rank the following course project roles from Least desirable (5) to most desirable (1)</label>
+
+            <div class="ranking-options">
+                <label>Coding</label>
+                <label>
+                    <input type="radio" name="coding" value="1" required> 1
+                    <input type="radio" name="coding" value="2"> 2
+                    <input type="radio" name="coding" value="3"> 3
+                    <input type="radio" name="coding" value="4"> 4
+                    <input type="radio" name="coding" value="5"> 5
+                </label>
+            </div>
+            <div class="ranking-options">
+                <label>Requirements</label>
+                <label>
+                    <input type="radio" name="requirements" value="1" required> 1
+                    <input type="radio" name="requirements" value="2"> 2
+                    <input type="radio" name="requirements" value="3"> 3
+                    <input type="radio" name="requirements" value="4"> 4
+                    <input type="radio" name="requirements" value="5"> 5
+                </label>
+            </div>
+            <div class="ranking-options">
+                <label>Testing</label>
+                <label>
+                    <input type="radio" name="testing" value="1" required> 1
+                    <input type="radio" name="testing" value="2"> 2
+                    <input type="radio" name="testing" value="3"> 3
+                    <input type="radio" name="testing" value="4"> 4
+                    <input type="radio" name="testing" value="5"> 5
+                </label>
+            </div>
+            <div class="ranking-options">
+                <label>UI Design</label>
+                <label>
+                    <input type="radio" name="ui-design" value="1" required> 1
+                    <input type="radio" name="ui-design" value="2"> 2
+                    <input type="radio" name="ui-design" value="3"> 3
+                    <input type="radio" name="ui-design" value="4"> 4
+                    <input type="radio" name="ui-design" value="5"> 5
+                </label>
+            </div>
+            <div class="ranking-options">
+                <label>Project Management</label>
+                <label>
+                    <input type="radio" name="project-management" value="1" required> 1
+                    <input type="radio" name="project-management" value="2"> 2
+                    <input type="radio" name="project-management" value="3"> 3
+                    <input type="radio" name="project-management" value="4"> 4
+                    <input type="radio" name="project-management" value="5"> 5
+                </label>
+            </div>
+        </div>
+
+        <!-- Experience Description -->
+        <div class="question-block">
+            <label for="experience">In a brief paragraph, please describe your experience in the above five categories:</label>
+            <textarea id="experience" rows="4" required></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Survey</button>
+    </form>
+</div>
+
+<script>
+    // Handle form submission
+    document.getElementById('survey-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const formData = new FormData(this);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        // Send the data to the server
+        fetch('/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Survey submitted successfully!');
+                this.reset(); // Reset the form after submission
+            } else {
+                alert('Error submitting the survey. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error submitting the survey. Please try again.');
+        });
+    });
+</script>
+
+</body>
+</html>
