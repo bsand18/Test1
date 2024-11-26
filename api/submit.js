@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 
-// MongoDB URI (Replace with your own URI from Atlas)
-const uri = 'mongodb+srv://bsand:<aJbrh0EcRTvpqWAC@surveyproject.7iq3i.mongodb.net/?retryWrites=true&w=majority&appName=SurveyProject';
+// MongoDB URI (Ensure this is correct and in .env for security)
+const uri = process.env.MONGODB_URI;  // Your MongoDB URI should be set as an environment variable
 const client = new MongoClient(uri);
 
 export default async function handler(req, res) {
@@ -57,5 +57,3 @@ export default async function handler(req, res) {
     }
 }
 
-         
-           
